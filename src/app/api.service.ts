@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Meow } from './meow';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   // private url = `http://dog-service-${this.getMode()}/bark`;
-  private url = `http://localhost:${this.getPort()}/bark`;
+  private url = `http://${environment.backendBaseUrl}:${this.getPort()}/bark`;
 
   constructor(
     private http: HttpClient,

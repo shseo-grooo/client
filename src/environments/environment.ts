@@ -2,8 +2,19 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+type env = {
+  production: boolean
+  backendBaseUrl: string
+}
+declare global {
+  interface Window {
+    env: env;
+  }
+}
+
+export const environment: env = {
+  production: false,
+  backendBaseUrl: window.env.backendBaseUrl || 'localhost'
 };
 
 /*
