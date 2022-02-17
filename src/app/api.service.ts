@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   // private url = `http://dog-service-${this.getMode()}/bark`;
-  private url = `http://${environment.backendBaseUrl}:${this.getPort()}/bark`;
+  private url = `http://${environment.backendBaseUrl}:${this.getPort()}/animal/dog/bark`;
 
   constructor(
     private http: HttpClient,
