@@ -19,6 +19,6 @@ export class ApiService {
   }
 
   private getPort(): string {
-    return location.port ? "8888" : "80"
+    return location.port ? location.port : "80"
   }
 }
