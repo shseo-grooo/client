@@ -7,18 +7,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
-  // private url = `http://dog-service-${this.getMode()}/bark`;
-  private url = `http://${environment.backendBaseUrl}:${this.getPort()}/animal/dog/bark`;
+  private url = `http://dog-service-${this.getMode()}/bark`;
+  // private url = `http://${environment.backendBaseUrl}:${this.getPort()}/animal/dog/bark`;
 
   constructor(
     private http: HttpClient,
   ) { }
 
   getMeow(): Observable<Meow> {
-    return this.http.get<Meow>(this.url);
+    return this.http.get<Meow>(this.url, { headers: { "X-Mode": this.getMode() } });
   }
 
   private getPort(): string {
     return location.port ? location.port : "80"
+  }
+  private getMode(): string {
+    return location.port === "8888" ? "preview" : "active"
   }
 }
