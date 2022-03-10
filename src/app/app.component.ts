@@ -8,7 +8,7 @@ import { MessageService } from './message.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Blue Green 통신 테스트 - v1.7'
+  title = 'Blue Green 통신 테스트 - v1.8'
 
   constructor(
     private apiService: ApiService,
